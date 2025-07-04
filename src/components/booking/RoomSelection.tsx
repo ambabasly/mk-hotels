@@ -44,7 +44,6 @@ const RoomSelection = ({
 
   const nightCount = differenceInDays(dates.checkOut, dates.checkIn);
 
-  // Mock room data - In real app, this would come from API
   const mockRooms: Room[] = [
     {
       id: 1,

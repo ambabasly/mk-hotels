@@ -4,7 +4,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Phone, MapPin } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,6 +19,105 @@ const Header = () => {
 
   const isActive = (path: string) => pathname === path;
 
+  // Icon Components
+  const PhoneIcon = () => (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-3 h-3 sm:w-4 sm:h-4"
+    >
+      <path
+        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+
+  const MapPinIcon = () => (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-3 h-3 sm:w-4 sm:h-4"
+    >
+      <path
+        d="M21 10C21 17 12 23 12 23S3 17 3 10C3 6.13401 6.13401 3 10 3H14C17.866 3 21 6.13401 21 10Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2" />
+    </svg>
+  );
+
+  const MenuIcon = () => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5 sm:w-6 sm:h-6"
+    >
+      <path
+        d="M3 12H21"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3 6H21"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3 18H21"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+
+  const XIcon = () => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5 sm:w-6 sm:h-6"
+    >
+      <path
+        d="M18 6L6 18"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6 6L18 18"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
       {/* Top Bar */}
@@ -27,26 +125,26 @@ const Header = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center text-xs sm:text-sm">
           <div className="flex items-center space-x-3 sm:space-x-4">
             <div className="flex items-center space-x-1 sm:space-x-2">
-              <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="hidden xs:inline">+254 123 456 789</span>
+              <PhoneIcon />
+              <span className="hidden xs:inline">+234 812 345 6789</span>
               <span className="xs:hidden">Call Us</span>
             </div>
             <div className="hidden sm:flex items-center space-x-1 sm:space-x-2">
-              <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>Nairobi, Kenya</span>
+              <MapPinIcon />
+              <span>Benin City, Nigeria</span>
             </div>
           </div>
           <div className="hidden sm:block">
-            <Link 
-              href="/booking" 
+            <Link
+              href="/booking"
               className="bg-accent-600 hover:bg-accent-700 px-3 sm:px-4 py-1 rounded text-xs sm:text-sm font-medium transition-colors"
             >
               Book Now
             </Link>
           </div>
           <div className="sm:hidden">
-            <Link 
-              href="/booking" 
+            <Link
+              href="/booking"
               className="bg-accent-600 hover:bg-accent-700 px-2 py-1 rounded text-xs font-medium transition-colors"
             >
               Book
@@ -62,13 +160,17 @@ const Header = () => {
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
               <div className="w-6 h-6 sm:w-8 sm:h-8 bg-accent-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-sm sm:text-lg">P</span>
+                <span className="text-white font-bold text-sm sm:text-lg">
+                  P
+                </span>
               </div>
               <div>
                 <h1 className="text-base sm:text-xl font-serif font-bold text-primary-700">
                   Patricia Hotel
                 </h1>
-                <p className="text-xs text-gray-500 -mt-1 hidden sm:block">Luxury & Comfort</p>
+                <p className="text-xs text-gray-500 -mt-1 hidden sm:block">
+                  Luxury & Comfort
+                </p>
               </div>
             </Link>
 
@@ -96,11 +198,7 @@ const Header = () => {
                 className="text-gray-700 hover:text-accent-600 focus:outline-none focus:ring-2 focus:ring-accent-600 p-2 rounded-lg"
                 aria-label="Toggle navigation menu"
               >
-                {isMenuOpen ? (
-                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
-                ) : (
-                  <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
-                )}
+                {isMenuOpen ? <XIcon /> : <MenuIcon />}
               </button>
             </div>
           </div>
