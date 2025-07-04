@@ -1,0 +1,112 @@
+{
+  "images": [
+    {
+      "id": "hotel-1",
+      "src": "/images/hotel/image_1.jpeg",
+      "alt": "Patricia Hotel exterior view",
+      "title": "Hotel Exterior",
+      "description": "Stunning architectural design of Patricia Hotel",
+      "category": "hotel",
+      "thumbnail": "/images/hotel/image_1.jpeg"
+    },
+    {
+      "id": "hotel-2",
+      "src": "/images/hotel/image_2.jpeg",
+      "alt": "Elegant hotel lobby",
+      "title": "Grand Lobby",
+      "description": "Luxurious lobby with marble finishes and contemporary art",
+      "category": "hotel",
+      "thumbnail": "/images/hotel/image_2.jpeg"
+    },
+    {
+      "id": "room-1",
+      "src": "/images/hotel/image_3.jpeg",
+      "alt": "Standard room interior",
+      "title": "Standard Room",
+      "description": "Comfortable and modern standard room",
+      "category": "rooms",
+      "thumbnail": "/images/hotel/image_3.jpeg"
+    },
+    {
+      "id": "room-2",
+      "src": "/images/hotel/image_4.jpeg",
+      "alt": "Deluxe room with city view",
+      "title": "Deluxe Room",
+      "description": "Spacious deluxe room with stunning city views",
+      "category": "rooms",
+      "thumbnail": "/images/hotel/image_1.jpeg"
+    },
+    {
+      "id": "room-3",
+      "src": "/images/hotel/image_1.jpeg",
+      "alt": "Executive suite living area",
+      "title": "Executive Suite",
+      "description": "Luxurious suite with separate living area",
+      "category": "rooms",
+      "thumbnail": "/images/hotel/image_1.jpeg"
+    },
+    {
+      "id": "restaurant-1",
+      "src": "/images/hotel/image_2.jpeg",
+      "alt": "Fine dining restaurant",
+      "title": "Restaurant Interior",
+      "description": "Elegant dining room with ocean views",
+      "category": "restaurant",
+      "thumbnail": "/images/hotel/image_2.jpeg"
+    },
+    {
+      "id": "restaurant-2",
+      "src": "/images/hotel/image_3.jpeg",
+      "alt": "Gourmet dish presentation",
+      "title": "Culinary Excellence",
+      "description": "Artfully presented gourmet cuisine",
+      "category": "restaurant",
+      "thumbnail": "/images/hotel/image_3.jpeg"
+    },
+    {
+      "id": "bar-1",
+      "src": "/images/hotel/image_4.jpeg",
+      "alt": "Bar and lounge area",
+      "title": "Bar & Lounge",
+      "description": "Sophisticated bar with craft cocktails",
+      "category": "bar",
+      "thumbnail": "/images/hotel/image_4.jpeg"
+    },
+    {
+      "id": "nightclub-1",
+      "src": "/images/hotel/image_1.jpeg",
+      "alt": "Nightclub dance floor",
+      "title": "Nightclub",
+      "description": "Vibrant nightclub with state-of-the-art sound system",
+      "category": "nightclub",
+      "thumbnail": "/images/hotel/image_1.jpeg"
+    },
+    {
+      "id": "facilities-1",
+      "src": "/images/hotel/image_2.jpeg",
+      "alt": "Hotel swimming pool",
+      "title": "Swimming Pool",
+      "description": "Rooftop infinity pool with city views",
+      "category": "facilities",
+      "thumbnail": "/images/hotel/image_2.jpeg"
+    },
+    {
+      "id": "facilities-2",
+      "src": "/images/hotel/image_3.jpeg",
+      "alt": "Spa treatment room",
+      "title": "Wellness Spa",
+      "description": "Tranquil spa treatment room",
+      "category": "facilities",
+      "thumbnail": "/images/hotel/image_3.jpeg"
+    },
+    {
+      "id": "events-1",
+      "src": "/images/hotel/image_4.jpeg",
+      "alt": "Conference room",
+      "title": "Conference Facilities",
+      "description": "Modern conference room with AV equipment",
+      "category": "events",
+      "thumbnail": "/images/hotel/image_4.jpeg"
+    }
+  ]
+}

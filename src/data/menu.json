@@ -1,0 +1,325 @@
+{
+    "restaurant": [
+      {
+        "id": "appetizers",
+        "name": "Appetizers",
+        "description": "Start your culinary journey with our exquisite selection",
+        "items": [
+          {
+            "id": 1,
+            "name": "Truffle Arancini",
+            "description": "Crispy risotto balls with black truffle, parmesan, and micro herbs",
+            "price": 18,
+            "category": "appetizers",
+            "type": "restaurant",
+            "image": "/images/hotel/image_3.jpeg"
+          },
+          {
+            "id": 2,
+            "name": "Seared Scallops",
+            "description": "Pan-seared diver scallops with cauliflower purée and pancetta",
+            "price": 24,
+            "category": "appetizers",
+            "type": "restaurant",
+            "image": "/images/hotel/image_1.jpeg"
+          },
+          {
+            "id": 3,
+            "name": "Burrata Caprese",
+            "description": "Fresh burrata with heirloom tomatoes, basil oil, and aged balsamic",
+            "price": 16,
+            "category": "appetizers",
+            "type": "restaurant",
+            "image": "/images/hotel/image_4.jpeg"
+          },
+          {
+            "id": 4,
+            "name": "Tuna Tartare",
+            "description": "Yellowfin tuna with avocado, mango, and sesame ginger dressing",
+            "price": 22,
+            "category": "appetizers",
+            "type": "restaurant",
+            "image": "/images/hotel/image_2.jpeg"
+          }
+        ]
+      },
+      {
+        "id": "mains",
+        "name": "Main Courses",
+        "description": "Expertly crafted dishes featuring the finest ingredients",
+        "items": [
+          {
+            "id": 5,
+            "name": "Wagyu Beef Tenderloin",
+            "description": "Grilled A5 wagyu with roasted vegetables and red wine reduction",
+            "price": 85,
+            "category": "mains",
+            "type": "restaurant",
+            "image": "/images/hotel/image_1.jpeg"
+          },
+          {
+            "id": 6,
+            "name": "Chilean Sea Bass",
+            "description": "Miso-glazed sea bass with bok choy and jasmine rice",
+            "price": 48,
+            "category": "mains",
+            "type": "restaurant",
+            "image": "/images/hotel/image_3.jpeg"
+          },
+          {
+            "id": 7,
+            "name": "Duck Confit",
+            "description": "Traditional duck leg confit with pommes sarladaises and cherry gastrique",
+            "price": 42,
+            "category": "mains",
+            "type": "restaurant",
+            "image": "/images/hotel/image_2.jpeg"
+          },
+          {
+            "id": 8,
+            "name": "Lobster Thermidor",
+            "description": "Maine lobster with cognac cream sauce and herb crust",
+            "price": 65,
+            "category": "mains",
+            "type": "restaurant",
+            "image": "/images/hotel/image_4.jpeg"
+          },
+          {
+            "id": 9,
+            "name": "Vegetarian Risotto",
+            "description": "Wild mushroom risotto with truffle oil and parmesan (Vegetarian)",
+            "price": 32,
+            "category": "mains",
+            "type": "restaurant",
+            "image": "/images/hotel/image_1.jpeg"
+          }
+        ]
+      },
+      {
+        "id": "desserts",
+        "name": "Desserts",
+        "description": "Sweet endings to perfect your dining experience",
+        "items": [
+          {
+            "id": 10,
+            "name": "Chocolate Soufflé",
+            "description": "Warm dark chocolate soufflé with vanilla bean ice cream",
+            "price": 14,
+            "category": "desserts",
+            "type": "restaurant",
+            "image": "/images/hotel/image_2.jpeg"
+          },
+          {
+            "id": 11,
+            "name": "Crème Brûlée",
+            "description": "Classic vanilla custard with caramelized sugar and fresh berries",
+            "price": 12,
+            "category": "desserts",
+            "type": "restaurant",
+            "image": "/images/hotel/image_3.jpeg"
+          },
+          {
+            "id": 12,
+            "name": "Tiramisu",
+            "description": "Traditional Italian tiramisu with espresso and mascarpone",
+            "price": 13,
+            "category": "desserts",
+            "type": "restaurant",
+            "image": "/images/hotel/image_4.jpeg"
+          }
+        ]
+      }
+    ],
+    "bar": [
+      {
+        "id": "cocktails",
+        "name": "Signature Cocktails",
+        "description": "Handcrafted cocktails by our expert mixologists",
+        "items": [
+          {
+            "id": 13,
+            "name": "Patricia's Passion",
+            "description": "Vodka, passion fruit, lime, and champagne",
+            "price": 16,
+            "category": "cocktails",
+            "type": "bar",
+            "image": "/images/hotel/image_4.jpeg"
+          },
+          {
+            "id": 14,
+            "name": "Ocean Breeze",
+            "description": "Gin, elderflower, cucumber, and tonic",
+            "price": 14,
+            "category": "cocktails",
+            "type": "bar",
+            "image": "/images/hotel/image_1.jpeg"
+          },
+          {
+            "id": 15,
+            "name": "Smoky Old Fashioned",
+            "description": "Bourbon, maple syrup, bitters, and oak smoke",
+            "price": 18,
+            "category": "cocktails",
+            "type": "bar",
+            "image": "/images/hotel/image_2.jpeg"
+          },
+          {
+            "id": 16,
+            "name": "Spicy Margarita",
+            "description": "Tequila, jalapeño, lime, and agave nectar (Spicy)",
+            "price": 15,
+            "category": "cocktails",
+            "type": "bar",
+            "image": "/images/hotel/image_3.jpeg"
+          }
+        ]
+      },
+      {
+        "id": "wines",
+        "name": "Wine Selection",
+        "description": "Carefully curated wines from around the world",
+        "items": [
+          {
+            "id": 17,
+            "name": "Champagne Dom Pérignon",
+            "description": "Vintage champagne with notes of citrus and minerality",
+            "price": 45,
+            "category": "wines",
+            "type": "bar",
+            "image": "/images/hotel/image_1.jpeg"
+          },
+          {
+            "id": 18,
+            "name": "Pinot Noir Reserve",
+            "description": "Oregon pinot noir with cherry and earth notes",
+            "price": 16,
+            "category": "wines",
+            "type": "bar",
+            "image": "/images/hotel/image_3.jpeg"
+          },
+          {
+            "id": 19,
+            "name": "Sauvignon Blanc",
+            "description": "New Zealand sauvignon blanc with tropical fruit flavors",
+            "price": 12,
+            "category": "wines",
+            "type": "bar",
+            "image": "/images/hotel/image_4.jpeg"
+          }
+        ]
+      },
+      {
+        "id": "bites",
+        "name": "Bar Bites",
+        "description": "Perfect accompaniments to your drinks",
+        "items": [
+          {
+            "id": 20,
+            "name": "Oysters Rockefeller",
+            "description": "Fresh oysters with spinach, herbs, and hollandaise",
+            "price": 18,
+            "category": "bites",
+            "type": "bar",
+            "image": "/images/hotel/image_2.jpeg"
+          },
+          {
+            "id": 21,
+            "name": "Charcuterie Board",
+            "description": "Selection of artisanal meats, cheeses, and accompaniments",
+            "price": 24,
+            "category": "bites",
+            "type": "bar",
+            "image": "/images/hotel/image_1.jpeg"
+          },
+          {
+            "id": 22,
+            "name": "Truffle Fries",
+            "description": "Hand-cut fries with truffle oil and parmesan",
+            "price": 14,
+            "category": "bites",
+            "type": "bar",
+            "image": "/images/hotel/image_3.jpeg"
+          }
+        ]
+      }
+    ],
+    "nightclub": [
+      {
+        "id": "bottles",
+        "name": "Bottle Service",
+        "description": "Premium bottle service packages • Thursday to Sunday, 9 PM - 3 AM",
+        "items": [
+          {
+            "id": 23,
+            "name": "Grey Goose Vodka",
+            "description": "Premium vodka bottle with mixers and private table service",
+            "price": 450,
+            "category": "bottles",
+            "type": "nightclub",
+            "image": "/images/hotel/image_4.jpeg"
+          },
+          {
+            "id": 24,
+            "name": "Hennessy XO Cognac",
+            "description": "Ultra-premium cognac with VIP table and personal server",
+            "price": 850,
+            "category": "bottles",
+            "type": "nightclub",
+            "image": "/images/hotel/image_1.jpeg"
+          },
+          {
+            "id": 25,
+            "name": "Dom Pérignon Champagne",
+            "description": "Luxury champagne service with sparklers and celebration",
+            "price": 650,
+            "category": "bottles",
+            "type": "nightclub",
+            "image": "/images/hotel/image_2.jpeg"
+          },
+          {
+            "id": 26,
+            "name": "Macallan 18 Whisky",
+            "description": "Aged single malt scotch with premium table location",
+            "price": 1200,
+            "category": "bottles",
+            "type": "nightclub",
+            "image": "/images/hotel/image_3.jpeg"
+          }
+        ]
+      },
+      {
+        "id": "packages",
+        "name": "VIP Packages",
+        "description": "Complete VIP experience packages",
+        "items": [
+          {
+            "id": 27,
+            "name": "Gold Package",
+            "description": "Reserved table, 2 premium bottles, appetizer platter, priority entry",
+            "price": 1500,
+            "category": "packages",
+            "type": "nightclub",
+            "image": "/images/hotel/image_1.jpeg"
+          },
+          {
+            "id": 28,
+            "name": "Platinum Package",
+            "description": "Premium booth, 3 top-shelf bottles, gourmet catering, VIP host",
+            "price": 2500,
+            "category": "packages",
+            "type": "nightclub",
+            "image": "/images/hotel/image_2.jpeg"
+          },
+          {
+            "id": 29,
+            "name": "Diamond Package",
+            "description": "Private skybox, unlimited premium drinks, personal bartender, security",
+            "price": 5000,
+            "category": "packages",
+            "type": "nightclub",
+            "image": "/images/hotel/image_4.jpeg"
+          }
+        ]
+      }
+    ]
+  }

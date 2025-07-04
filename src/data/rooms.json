@@ -1,0 +1,82 @@
+{
+    "rooms": [
+      {
+        "id": 1,
+        "name": "Standard Room",
+        "price": 150,
+        "currency": "USD",
+        "amenities": ["WiFi", "Air Conditioning", "TV", "Safe", "Daily Housekeeping"],
+        "images": ["/images/hotel/image_1.jpeg", "/images/hotel/image_1.jpeg", "/images/hotel/image_1.jpeg"],
+        "description": "Comfortable and modern room with all essential amenities for a pleasant stay. Features contemporary furnishings, premium bedding, and a view of our beautiful hotel gardens.",
+        "maxGuests": 2,
+        "bedType": "Queen Bed",
+        "size": 300,
+        "available": true
+      },
+      {
+        "id": 2,
+        "name": "Deluxe Room",
+        "price": 220,
+        "currency": "USD",
+        "amenities": ["WiFi", "Air Conditioning", "TV", "Safe", "Minibar", "City View", "Premium Bedding"],
+        "images": ["/images/hotel/image_1.jpeg", "/images/hotel/image_1.jpeg", "/images/hotel/image_1.jpeg"],
+        "description": "Spacious room with premium amenities and stunning city views. Enhanced with luxury finishes, a comfortable seating area, and upgraded bathroom amenities.",
+        "maxGuests": 3,
+        "bedType": "King Bed",
+        "size": 400,
+        "available": true
+      },
+      {
+        "id": 3,
+        "name": "Garden View Room",
+        "price": 180,
+        "currency": "USD",
+        "amenities": ["WiFi", "Air Conditioning", "TV", "Safe", "Garden View", "Coffee Maker"],
+        "images": ["/images/hotel/image_1.jpeg", "/images/hotel/image_1.jpeg", "/images/hotel/image_1.jpeg"],
+        "description": "Peaceful room overlooking our beautiful hotel gardens. Perfect for guests seeking tranquility with modern comforts and a private balcony.",
+        "maxGuests": 2,
+        "bedType": "Queen Bed",
+        "size": 320,
+        "available": true
+      },
+      {
+        "id": 4,
+        "name": "Executive Suite",
+        "price": 350,
+        "currency": "USD",
+        "amenities": ["WiFi", "Air Conditioning", "TV", "Safe", "Minibar", "Ocean View", "Balcony", "Kitchenette", "Living Area"],
+        "images": ["/images/hotel/image_1.jpeg", "/images/hotel/image_1.jpeg", "/images/hotel/image_1.jpeg"],
+        "description": "Luxurious suite with separate living area, ocean views, and premium amenities. Features a fully equipped kitchenette, spacious balcony, and elegant furnishings.",
+        "maxGuests": 4,
+        "bedType": "King Bed",
+        "size": 600,
+        "available": true
+      },
+      {
+        "id": 5,
+        "name": "Presidential Suite",
+        "price": 650,
+        "currency": "USD",
+        "amenities": ["WiFi", "Air Conditioning", "TV", "Safe", "Minibar", "Ocean View", "Balcony", "Kitchenette", "Jacuzzi", "Butler Service", "Premium Bar"],
+        "images": ["/images/hotel/image_1.jpeg", "/images/hotel/image_1.jpeg", "/images/hotel/image_1.jpeg"],
+        "description": "The ultimate luxury experience with panoramic ocean views and personalized service. Features a private jacuzzi, premium bar, dedicated butler service, and the finest amenities.",
+        "maxGuests": 6,
+        "bedType": "King Bed + Sofa Bed",
+        "size": 1000,
+        "available": true
+      },
+      {
+        "id": 6,
+        "name": "Business Room",
+        "price": 200,
+        "currency": "USD",
+        "amenities": ["WiFi", "Air Conditioning", "TV", "Safe", "Work Desk", "Business Center Access", "Coffee Maker"],
+        "images": ["/images/hotel/image_1.jpeg", "/images/hotel/image_1.jpeg", "/images/hotel/image_1.jpeg"],
+        "description": "Designed for the modern business traveler with a dedicated workspace, high-speed internet, and easy access to our business center facilities.",
+        "maxGuests": 2,
+        "bedType": "Queen Bed",
+        "size": 350,
+        "available": false
+      }
+    ]
+  }
