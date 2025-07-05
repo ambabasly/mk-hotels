@@ -7,6 +7,7 @@ import Footer from '@/components/layout/Footer';
 import ImageGallery from '@/components/gallery/ImageGallery';
 import LoadingSkeleton, { PageSkeleton, GalleryImageSkeleton } from '@/components/ui/LoadingSkeleton';
 import Button from '@/components/ui/Button';
+import { motion } from '@/components/ui/MotionWrapper';
 
 // Import gallery data (in real app, this would be API calls)
 import galleryData from '@/data/gallery.json';
@@ -566,61 +567,125 @@ const GalleryPage = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
+        className="min-h-screen bg-gray-50"
+      >
         <Navigation />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+        >
           <PageSkeleton variant="gallery" />
-        </div>
+        </motion.div>
         <Footer />
-      </div>
+      </motion.div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen bg-gray-50"
+    >
       <Navigation />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <motion.main 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+      >
         {/* Hero Section */}
-        <div className="text-center mb-12">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-center mb-12"
+        >
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+          >
             Photo Gallery
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="text-xl text-gray-600 max-w-3xl mx-auto mb-8"
+          >
             Discover the beauty and elegance of Patricia Hotel through our curated collection of photography. 
             From luxurious accommodations to world-class dining and vibrant nightlife.
-          </p>
+          </motion.p>
           
           {/* Quick Stats */}
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center text-sm text-gray-600">
-            <div className="flex items-center space-x-2">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="flex flex-col sm:flex-row gap-8 justify-center items-center text-sm text-gray-600"
+          >
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center space-x-2"
+            >
               <CameraIcon />
               <span>{images.length} Professional Photos</span>
-            </div>
-            <div className="flex items-center space-x-2">
+            </motion.div>
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center space-x-2"
+            >
               <GridIcon />
               <span>{categories.length - 1} Categories</span>
-            </div>
-            <div className="flex items-center space-x-2">
+            </motion.div>
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center space-x-2"
+            >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
               <span>High-Resolution Downloads</span>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
         {/* Gallery Controls */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="bg-white rounded-2xl shadow-lg p-6 mb-8"
+        >
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
             
             {/* Category Filter */}
-            <div className="flex-1">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="flex-1"
+            >
               <label className="block text-sm font-medium text-gray-700 mb-3">Browse by Category</label>
               <div className="flex flex-wrap gap-2">
-                {categories.map((category) => (
-                  <button
+                {categories.map((category, index) => (
+                  <motion.button
                     key={category}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: 0.1 * index }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => setSelectedCategory(category)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                       selectedCategory === category
@@ -632,13 +697,18 @@ const GalleryPage = () => {
                     <span className="ml-2 text-xs opacity-75">
                       ({getCategoryCount(category)})
                     </span>
-                  </button>
+                  </motion.button>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* View Controls */}
-            <div className="flex items-center space-x-4">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 1 }}
+              className="flex items-center space-x-4"
+            >
               <div className="flex items-center space-x-2">
                 <label className="text-sm font-medium text-gray-700">Sort:</label>
                 <select
@@ -655,13 +725,17 @@ const GalleryPage = () => {
               <div className="flex items-center space-x-2">
                 <label className="text-sm font-medium text-gray-700">View:</label>
                 <div className="flex border border-gray-300 rounded-lg overflow-hidden">
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => setViewMode('grid')}
                     className={`p-2 ${viewMode === 'grid' ? 'bg-primary-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`}
                   >
                     <GridIcon />
-                  </button>
-                  <button
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => setViewMode('masonry')}
                     className={`p-2 ${viewMode === 'masonry' ? 'bg-primary-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`}
                   >
@@ -670,15 +744,20 @@ const GalleryPage = () => {
                       <rect x="14" y="3" width="7" height="5" stroke="currentColor" strokeWidth="2" />
                       <rect x="14" y="12" width="7" height="9" stroke="currentColor" strokeWidth="2" />
                     </svg>
-                  </button>
+                  </motion.button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Gallery */}
-        <div className="mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mb-16"
+        >
           <ImageGallery
             images={filteredImages}
             columns={viewMode === 'grid' ? 4 : 3}
@@ -688,90 +767,171 @@ const GalleryPage = () => {
             lightbox={true}
             spacing="normal"
           />
-        </div>
+        </motion.div>
 
         {/* Empty State */}
         {filteredImages.length === 0 && (
-          <div className="text-center py-16">
-            <div className="w-24 h-24 mx-auto mb-6 text-gray-300">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center py-16"
+          >
+            <motion.div 
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="w-24 h-24 mx-auto mb-6 text-gray-300"
+            >
               <CameraIcon />
-            </div>
-            <h3 className="text-2xl font-medium text-gray-900 mb-2">No photos found</h3>
-            <p className="text-gray-600 mb-6">
+            </motion.div>
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-2xl font-medium text-gray-900 mb-2"
+            >
+              No photos found
+            </motion.h3>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-gray-600 mb-6"
+            >
               No images found in the "{formatCategoryName(selectedCategory)}" category.
-            </p>
-            <Button onClick={() => setSelectedCategory('all')}>
-              View All Photos
-            </Button>
-          </div>
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <Button onClick={() => setSelectedCategory('all')}>
+                View All Photos
+              </Button>
+            </motion.div>
+          </motion.div>
         )}
 
         {/* Gallery Actions */}
         {filteredImages.length > 0 && (
-          <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
-            <h2 className="font-serif text-2xl font-semibold text-gray-900 mb-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-lg p-8 text-center"
+          >
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="font-serif text-2xl font-semibold text-gray-900 mb-4"
+            >
               Love What You See?
-            </h2>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-gray-600 mb-6 max-w-2xl mx-auto"
+            >
               Experience Patricia Hotel in person. Our photography captures just a glimpse 
               of the luxury and elegance that awaits you.
-            </p>
+            </motion.p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button
-                onClick={() => window.location.href = '/booking'}
-                size="lg"
-              >
-                Book Your Stay
-              </Button>
-              <Button
-                onClick={() => window.location.href = '/contact'}
-                variant="secondary"
-                size="lg"
-              >
-                Contact Us
-              </Button>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
+            >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button
+                  onClick={() => window.location.href = '/booking'}
+                  size="lg"
+                >
+                  Book Your Stay
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button
+                  onClick={() => window.location.href = '/contact'}
+                  variant="secondary"
+                  size="lg"
+                >
+                  Contact Us
+                </Button>
+              </motion.div>
+            </motion.div>
 
             {/* Sharing Options */}
-            <div className="border-t border-gray-200 pt-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+              className="border-t border-gray-200 pt-6"
+            >
               <h3 className="font-medium text-gray-900 mb-4">Share Our Gallery</h3>
               <div className="flex justify-center space-x-4">
-                <button className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
                   <ShareIcon />
                   <span>Share</span>
-                </button>
-                <button 
+                </motion.button>
+                <motion.button 
                   onClick={downloadPDFBrochure}
                   disabled={isGeneratingPDF}
+                  whileHover={{ scale: isGeneratingPDF ? 1 : 1.05 }}
+                  whileTap={{ scale: isGeneratingPDF ? 1 : 0.95 }}
                   className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <DownloadIcon />
                   <span>{isGeneratingPDF ? 'Generating PDF...' : 'Download Brochure'}</span>
-                </button>
+                </motion.button>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         )}
 
         {/* Category Showcase */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categories.slice(1).map((category) => {
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {categories.slice(1).map((category, index) => {
             const categoryImages = images.filter(img => img.category === category);
             const featuredImage = categoryImages[0];
             
             return (
-              <div
+              <motion.div
                 key={category}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                viewport={{ once: true }}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
                 onClick={() => setSelectedCategory(category)}
               >
                 <div className="h-48 overflow-hidden">
                   {featuredImage ? (
-                    <img
+                    <motion.img
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
                       src={featuredImage.thumbnail || featuredImage.src}
                       alt={featuredImage.alt}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover"
                       onError={(e) => {
                         // Fallback to a random available image if the image fails to load
                         e.currentTarget.src = getRandomImage();
@@ -790,22 +950,24 @@ const GalleryPage = () => {
                   <p className="text-sm text-gray-600 mb-3">
                     {getCategoryCount(category)} photos
                   </p>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full"
-                  >
-                    View Gallery
-                  </Button>
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full"
+                    >
+                      View Gallery
+                    </Button>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
-      </main>
+        </motion.div>
+      </motion.main>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

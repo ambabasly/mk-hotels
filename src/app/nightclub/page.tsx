@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
 import { NightclubMenu } from '../dining/MenuDisplay';
+import { motion } from '@/components/ui/MotionWrapper';
 
 const NightclubPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +28,8 @@ const NightclubPage = () => {
     {
       id: 'bottle-service',
       name: 'VIP Bottle Service',
-      description: 'Premium bottle service with dedicated VIP host and prime table locations',
+      description:
+        'Premium bottle service with dedicated VIP host and prime table locations',
       items: [
         {
           id: 1,
@@ -71,7 +73,8 @@ const NightclubPage = () => {
         {
           id: 5,
           name: 'Neon Nights',
-          description: 'LED-illuminated cocktail with premium gin and exotic fruits',
+          description:
+            'LED-illuminated cocktail with premium gin and exotic fruits',
           price: 22,
           category: 'cocktails',
           type: 'nightclub' as const,
@@ -106,26 +109,61 @@ const NightclubPage = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
+        className="min-h-screen bg-gray-50"
+      >
         <Navigation />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="animate-pulse">
-            <div className="h-64 bg-gray-300 rounded-lg mb-8"></div>
-            <div className="h-8 bg-gray-300 rounded w-3/4 mb-4"></div>
-            <div className="h-4 bg-gray-300 rounded w-1/2"></div>
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+        >
+          <motion.div className="animate-pulse">
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="h-64 bg-gray-300 rounded-lg mb-8"
+            ></motion.div>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: '75%' }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="h-8 bg-gray-300 rounded mb-4"
+            ></motion.div>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: '50%' }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="h-4 bg-gray-300 rounded"
+            ></motion.div>
+          </motion.div>
+        </motion.div>
         <Footer />
-      </div>
+      </motion.div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen bg-gray-50"
+    >
       <Navigation />
 
       {/* Nightclub Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-pink-900 overflow-hidden">
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="relative py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-pink-900 overflow-hidden"
+      >
         {/* Animated Background */}
         <div className="absolute inset-0">
           <svg
@@ -159,15 +197,31 @@ const NightclubPage = () => {
         {/* Spotlight Effects */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-1/4 w-32 h-32 bg-yellow-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-1/4 w-40 h-40 bg-pink-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div
+            className="absolute bottom-20 right-1/4 w-40 h-40 bg-pink-500/20 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: '1s' }}
+          ></div>
+          <div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-purple-500/10 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: '2s' }}
+          ></div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
-            <div className="text-white space-y-8">
-              <div className="inline-flex items-center space-x-3 bg-red-500/20 backdrop-blur-sm rounded-full px-6 py-3 border border-red-400/30">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-white space-y-8"
+            >
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="inline-flex items-center space-x-3 bg-red-500/20 backdrop-blur-sm rounded-full px-6 py-3 border border-red-400/30"
+              >
                 <div className="relative">
                   <span className="w-3 h-3 bg-red-500 rounded-full animate-pulse block"></span>
                   <span className="absolute inset-0 w-3 h-3 bg-red-400 rounded-full animate-ping"></span>
@@ -175,35 +229,64 @@ const NightclubPage = () => {
                 <span className="text-sm font-semibold">
                   LIVE NOW • THU-SUN • 9PM-3AM
                 </span>
-              </div>
+              </motion.div>
 
-              <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight"
+              >
                 <span className="block bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
                   Patricia's
                 </span>
                 <span className="block">Nightclub</span>
-              </h1>
+              </motion.h1>
 
-              <p className="text-xl text-gray-200 leading-relaxed">
-                Benin City's hottest nightlife destination. Where the best Afrobeats, 
-                Amapiano, and Naija vibes meet premium bottle service and VIP experiences.
-              </p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="text-xl text-gray-200 leading-relaxed"
+              >
+                Benin City's hottest nightlife destination. Where the best
+                Afrobeats, Amapiano, and Naija vibes meet premium bottle service
+                and VIP experiences.
+              </motion.p>
 
               {/* Key Features */}
-              <div className="grid grid-cols-2 gap-4 sm:gap-8 max-w-2xl">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+                className="grid grid-cols-2 gap-4 sm:gap-8 max-w-2xl"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
+                >
                   <div className="text-yellow-400 font-bold text-lg">500+</div>
                   <div className="text-sm text-gray-300">VIP Guests Weekly</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
+                >
                   <div className="text-pink-400 font-bold text-lg">₦450K+</div>
                   <div className="text-sm text-gray-300">Bottle Service</div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.4 }}
+                className="flex flex-col sm:flex-row gap-4"
+              >
+                <motion.button
                   onClick={handleNightclubReservation}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold rounded-xl hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center space-x-2">
@@ -223,19 +306,30 @@ const NightclubPage = () => {
                     <span>Reserve VIP Table</span>
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                </button>
-                <a
+                </motion.button>
+                <motion.a
                   href="/contact"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center justify-center px-8 py-4 bg-white/20 text-white font-bold rounded-xl hover:bg-white/30 transition-all duration-300 backdrop-blur-sm border border-white/30"
                 >
                   Contact Us
-                </a>
-              </div>
-            </div>
+                </motion.a>
+              </motion.div>
+            </motion.div>
 
             {/* Nightclub Visualization */}
-            <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-purple-600 via-pink-600 to-yellow-500 rounded-3xl p-8 transform rotate-3 hover:rotate-6 transition-all duration-500 relative overflow-hidden">
+            <motion.div
+              initial={{ opacity: 0, x: 50, scale: 0.8 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="relative"
+            >
+              <motion.div
+                whileHover={{ rotate: 6, scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="aspect-square bg-gradient-to-br from-purple-600 via-pink-600 to-yellow-500 rounded-3xl p-8 transform rotate-3 transition-all duration-500 relative overflow-hidden"
+              >
                 <svg
                   className="w-full h-full"
                   viewBox="0 0 400 400"
@@ -528,26 +622,57 @@ const NightclubPage = () => {
                   <div className="font-bold">THU-SUN | 9PM-3AM</div>
                   <div className="text-xs opacity-75">21+ • Smart Casual</div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <motion.main
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+      >
         {/* Features Section */}
-        <div className="bg-gradient-to-br from-purple-900 to-pink-900 rounded-2xl p-8 text-white mb-8">
-          <div className="text-center mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-br from-purple-900 to-pink-900 rounded-2xl p-8 text-white mb-8"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
             <h3 className="font-serif text-3xl font-bold mb-4">
               The Ultimate Nightclub Experience
             </h3>
             <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-              Step into Benin City's most exclusive nightclub where every night is a celebration of Afrobeats and Amapiano
+              Step into Benin City's most exclusive nightclub where every night
+              is a celebration of Afrobeats and Amapiano
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, staggerChildren: 0.2, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.02 }}
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
+            >
               <div className="w-12 h-12 bg-yellow-400/20 rounded-full flex items-center justify-center mb-4">
                 <svg
                   className="w-6 h-6 text-yellow-400"
@@ -567,9 +692,16 @@ const NightclubPage = () => {
               <p className="text-sm text-gray-300">
                 The hottest Afrobeats and Amapiano DJs every weekend
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ scale: 1.02 }}
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
+            >
               <div className="w-12 h-12 bg-pink-400/20 rounded-full flex items-center justify-center mb-4">
                 <svg
                   className="w-6 h-6 text-pink-400"
@@ -589,9 +721,16 @@ const NightclubPage = () => {
               <p className="text-sm text-gray-300">
                 Dedicated VIP hosts, premium bottle service, and exclusive areas
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ scale: 1.02 }}
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
+            >
               <div className="w-12 h-12 bg-purple-400/20 rounded-full flex items-center justify-center mb-4">
                 <svg
                   className="w-6 h-6 text-purple-400"
@@ -611,52 +750,134 @@ const NightclubPage = () => {
               <p className="text-sm text-gray-300">
                 State-of-the-art sound system for the best Naija vibes
               </p>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
         {/* Menu Section */}
-        <NightclubMenu categories={nightclubCategories} className="mb-16" />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <NightclubMenu categories={nightclubCategories} className="mb-16" />
+        </motion.div>
 
         {/* Event Calendar */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-16">
-          <h3 className="text-center font-serif text-2xl font-bold mb-8">This Week's Lineup</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-gray-50 rounded-xl p-4 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-2xl shadow-lg p-8 mb-16"
+        >
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-center font-serif text-2xl font-bold mb-8"
+          >
+            This Week's Lineup
+          </motion.h3>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, staggerChildren: 0.1, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 rounded-xl p-4 text-center"
+            >
               <div className="text-yellow-600 font-bold">THU</div>
               <div className="text-gray-900 text-sm mt-1">DJ Kess</div>
               <div className="text-gray-600 text-xs">Afrobeats Night</div>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-4 text-center">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 rounded-xl p-4 text-center"
+            >
               <div className="text-pink-600 font-bold">FRI</div>
               <div className="text-gray-900 text-sm mt-1">DJ Big N</div>
               <div className="text-gray-600 text-xs">Naija Party Mix</div>
-            </div>
-            <div className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-xl p-4 text-center border-2 border-yellow-300">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ scale: 1.08 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-xl p-4 text-center border-2 border-yellow-300"
+            >
               <div className="text-yellow-600 font-bold">SAT</div>
               <div className="text-gray-900 text-sm mt-1">DJ Puffy</div>
               <div className="text-gray-600 text-xs">Amapiano Special</div>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-4 text-center">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 rounded-xl p-4 text-center"
+            >
               <div className="text-purple-600 font-bold">SUN</div>
               <div className="text-gray-900 text-sm mt-1">DJ Zee</div>
               <div className="text-gray-600 text-xs">Afro-House Vibes</div>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-center text-white">
-          <h2 className="font-serif text-3xl font-bold mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-center text-white"
+        >
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="font-serif text-3xl font-bold mb-4"
+          >
             Ready for the Ultimate Night Out?
-          </h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-            Experience Patricia's legendary nightclub with VIP treatment, the best Nigerian DJs, and unforgettable moments
-          </p>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-lg mb-8 max-w-2xl mx-auto opacity-90"
+          >
+            Experience Patricia's legendary nightclub with VIP treatment, the
+            best Nigerian DJs, and unforgettable moments
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <motion.button
               onClick={handleNightclubReservation}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="group relative inline-flex items-center justify-center px-8 py-4 bg-white text-purple-600 font-bold rounded-xl hover:bg-gray-100 transition-all duration-300 overflow-hidden"
             >
               <span className="relative z-10 flex items-center space-x-2">
@@ -675,19 +896,21 @@ const NightclubPage = () => {
                 </svg>
                 <span>Reserve VIP Experience</span>
               </span>
-            </button>
-            <a
+            </motion.button>
+            <motion.a
               href="/contact"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="inline-flex items-center justify-center px-8 py-4 bg-white/20 text-white font-bold rounded-xl hover:bg-white/30 transition-all duration-300 backdrop-blur-sm border border-white/30"
             >
               Contact Us
-            </a>
-          </div>
-        </div>
-      </main>
+            </motion.a>
+          </motion.div>
+        </motion.div>
+      </motion.main>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
