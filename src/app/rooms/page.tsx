@@ -1,7 +1,7 @@
 // src/app/rooms/page.tsx
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
@@ -47,7 +47,7 @@ const RoomsPageContent = () => {
 
   // Handle URL parameters (from booking widget or other sources)
   useEffect(() => {
-    const roomId = searchParams.get('roomId');
+    const roomId = searchParams?.get('roomId');
     if (roomId && rooms.length > 0) {
       const room = rooms.find(r => r.id === parseInt(roomId));
       if (room) {
@@ -57,7 +57,8 @@ const RoomsPageContent = () => {
     }
   }, [searchParams, rooms]);
 
-  const handleFilterChange = (filters: FilterOptions) => {
+  // Memoized filter handler to prevent infinite loops
+  const handleFilterChange = useCallback((filters: FilterOptions) => {
     let filtered = [...rooms];
 
     // Filter by price range
@@ -107,7 +108,7 @@ const RoomsPageContent = () => {
     }
 
     setFilteredRooms(filtered);
-  };
+  }, [rooms]); // Only depend on rooms, not on the filters
 
   const handleViewDetails = (room: Room) => {
     setSelectedRoom(room);
@@ -116,9 +117,9 @@ const RoomsPageContent = () => {
 
   const handleBookNow = (roomId: number) => {
     // Get current booking parameters from URL
-    const checkIn = searchParams.get('checkIn');
-    const checkOut = searchParams.get('checkOut');
-    const guests = searchParams.get('guests');
+    const checkIn = searchParams?.get('checkIn');
+    const checkOut = searchParams?.get('checkOut');
+    const guests = searchParams?.get('guests');
     
     // Build booking URL with room and dates
     const params = new URLSearchParams();
@@ -135,7 +136,7 @@ const RoomsPageContent = () => {
     setSelectedRoom(null);
     
     // Remove roomId from URL without page reload
-    const newParams = new URLSearchParams(searchParams);
+    const newParams = new URLSearchParams(searchParams || undefined);
     newParams.delete('roomId');
     const newUrl = `${window.location.pathname}${newParams.toString() ? `?${newParams.toString()}` : ''}`;
     window.history.replaceState({}, '', newUrl);
@@ -228,7 +229,7 @@ const RoomsPageContent = () => {
               </p>
               <button
                 onClick={() => window.location.reload()}
-                className="btn-primary"
+                className="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200"
               >
                 Reset Filters
               </button>

@@ -1,11 +1,93 @@
 // src/components/home/Hero.tsx
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  // Hotel images for carousel
+  const carouselImages = [
+    '/images/hotel/image_1.jpeg',
+    '/images/hotel/image-2.png',
+    '/images/hotel/image_3.jpeg',
+    '/images/hotel/image_4.jpeg'
+  ];
+
+  // Auto-slide functionality
+  useEffect(() => {
+    console.log('Hero carousel initialized with images:', carouselImages);
+    
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => {
+        const nextSlide = (prev + 1) % carouselImages.length;
+        console.log('Hero auto-advancing to slide:', nextSlide);
+        return nextSlide;
+      });
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [carouselImages.length]);
+
+  // Manual slide navigation
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-pink-800">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Image Carousel Background */}
+      <div className="absolute inset-0 z-0">
+        {/* Fallback gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-pink-800"></div>
+        
+        {carouselImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={image}
+              alt={`Patricia Hotel view ${index + 1}`}
+              className="w-full h-full object-cover"
+              onLoad={(e) => {
+                console.log(`Hero image ${index + 1} loaded successfully:`, image);
+              }}
+              onError={(e) => {
+                console.log(`Hero image ${index + 1} failed to load:`, image);
+                // Keep the element but hide the image, showing fallback background
+                e.currentTarget.style.opacity = '0';
+              }}
+            />
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-primary-900/70 to-pink-900/60"></div>
+          </div>
+        ))}
+      </div>
+
+      {/* Carousel Indicators */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+        <div className="flex space-x-3">
+          {carouselImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide
+                  ? 'bg-white scale-125 shadow-lg'
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 z-5">
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
           <defs>
             <pattern id="hero-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -19,14 +101,14 @@ const Hero = () => {
       </div>
 
       {/* Animated Background Elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-5">
         <div className="absolute top-20 left-10 w-4 h-4 sm:w-6 sm:h-6 bg-yellow-400/30 rounded-full animate-pulse"></div>
         <div className="absolute top-1/3 right-20 w-3 h-3 sm:w-4 sm:h-4 bg-pink-400/30 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
         <div className="absolute bottom-1/3 left-1/4 w-5 h-5 sm:w-8 sm:h-8 bg-blue-400/20 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-20 right-1/3 w-2 h-2 sm:w-3 sm:h-3 bg-green-400/30 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
       </div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="space-y-6 sm:space-y-8 lg:space-y-10">
           {/* Welcome Badge */}
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 sm:px-6 sm:py-3 mb-4">
@@ -112,7 +194,7 @@ const Hero = () => {
       </div>
 
       {/* Bottom Gradient Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
     </section>
   );
 };

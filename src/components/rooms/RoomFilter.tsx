@@ -1,7 +1,7 @@
 // src/components/rooms/RoomFilter.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface FilterOptions {
   priceRange: [number, number];
@@ -32,6 +32,9 @@ const RoomFilter = ({
     amenities: [],
     sortBy: 'price-asc'
   });
+
+  // Use ref to track if this is the initial render
+  const isInitialRender = useRef(true);
 
   // Available filter options
   const bedTypes = [
@@ -65,10 +68,14 @@ const RoomFilter = ({
     { value: 'guests-desc', label: 'Capacity: Most Guests' }
   ];
 
-  // Update parent component when filters change
+  // Update parent component when filters change (but skip initial render)
   useEffect(() => {
+    if (isInitialRender.current) {
+      isInitialRender.current = false;
+      return;
+    }
     onFilterChange(filters);
-  }, [filters, onFilterChange]);
+  }, [filters]); // Removed onFilterChange from dependencies to prevent infinite loop
 
   const updateFilter = (key: keyof FilterOptions, value: any) => {
     setFilters(prev => ({
@@ -152,7 +159,7 @@ const RoomFilter = ({
         <div className="flex items-center space-x-4">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex items-center space-x-2 btn-secondary"
+            className="flex items-center space-x-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors duration-200"
           >
             <FilterIcon />
             <span>Filters</span>
@@ -210,7 +217,7 @@ const RoomFilter = ({
                   step="50"
                   value={filters.priceRange[0]}
                   onChange={(e) => updateFilter('priceRange', [Number(e.target.value), filters.priceRange[1]])}
-                  className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                  className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                 />
                 <input
                   type="range"
@@ -219,7 +226,7 @@ const RoomFilter = ({
                   step="50"
                   value={filters.priceRange[1]}
                   onChange={(e) => updateFilter('priceRange', [filters.priceRange[0], Number(e.target.value)])}
-                  className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                  className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                 />
               </div>
               <div className="flex items-center justify-between text-sm text-gray-600">
@@ -259,7 +266,7 @@ const RoomFilter = ({
             <select
               value={filters.bedType}
               onChange={(e) => updateFilter('bedType', e.target.value)}
-              className="w-full input-field"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
               <option value="">Any Bed Type</option>
               {bedTypes.map((type) => (

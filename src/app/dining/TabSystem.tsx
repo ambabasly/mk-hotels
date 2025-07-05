@@ -98,109 +98,6 @@ const TabSystem = ({
     }
   };
 
-  // Icons for dining sections
-  const RestaurantIcon = () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-    >
-      <path
-        d="M5 7L5 20L19 20L19 7"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M9 6C9 4.89543 9.89543 4 11 4L13 4C14.1046 4 15 4.89543 15 6"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M12 11L12 16"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M10 13L14 13"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-
-  const BarIcon = () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-    >
-      <path
-        d="M5 12V7C5 5.89543 5.89543 5 7 5H17C18.1046 5 19 5.89543 19 7V12"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M5 12L7 14H17L19 12"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M12 5V2"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="19" r="3" stroke="currentColor" strokeWidth="2" />
-    </svg>
-  );
-
-  const NightclubIcon = () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-    >
-      <path
-        d="M9 18V5L21 3V20"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="6" cy="18" r="3" stroke="currentColor" strokeWidth="2" />
-      <circle cx="18" cy="20" r="3" stroke="currentColor" strokeWidth="2" />
-      <path
-        d="M9 12L21 10"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-
   return (
     <div className={className}>
       {/* Tab Navigation */}
@@ -262,11 +159,10 @@ const TabSystem = ({
   );
 };
 
-// Pre-configured Dining Tab System
+// Pre-configured Dining Tab System (REMOVED NIGHTCLUB)
 interface DiningTabSystemProps {
   restaurantContent: ReactNode;
   barContent: ReactNode;
-  nightclubContent: ReactNode;
   onTabChange?: (tabId: string) => void;
   className?: string;
 }
@@ -274,7 +170,6 @@ interface DiningTabSystemProps {
 const DiningTabSystem = ({
   restaurantContent,
   barContent,
-  nightclubContent,
   onTabChange,
   className = ''
 }: DiningTabSystemProps) => {
@@ -332,27 +227,7 @@ const DiningTabSystem = ({
     </svg>
   );
 
-  const NightclubIcon = () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-    >
-      <path
-        d="M9 18V5L21 3V20"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="6" cy="18" r="3" stroke="currentColor" strokeWidth="2" />
-      <circle cx="18" cy="20" r="3" stroke="currentColor" strokeWidth="2" />
-    </svg>
-  );
-
+  // ONLY Restaurant and Bar tabs now
   const diningTabs = [
     {
       id: 'restaurant',
@@ -365,13 +240,6 @@ const DiningTabSystem = ({
       label: 'Bar & Lounge',
       icon: <BarIcon />,
       content: barContent
-    },
-    {
-      id: 'nightclub',
-      label: 'Nightclub',
-      icon: <NightclubIcon />,
-      badge: 'Thu-Sun',
-      content: nightclubContent
     }
   ];
 

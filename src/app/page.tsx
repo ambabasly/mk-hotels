@@ -141,7 +141,7 @@ export default function HomePage() {
               {/* Enhanced CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="/dining#nightclub"
+                  href="/nightclub"
                   className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold rounded-xl hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 text-base overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center space-x-2">

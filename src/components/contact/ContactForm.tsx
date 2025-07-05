@@ -425,7 +425,7 @@ const ContactForm = ({ onSubmit, className = '' }: ContactFormProps) => {
           <div>
             <h4 className="font-medium text-gray-900 mb-1">Address</h4>
             <p>35 Olowu Street</p>
-            <p>Do</p>
+            <p>Ikeja Lagos Nigeria</p>
           </div>
         </div>
       </div>

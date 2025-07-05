@@ -9,12 +9,14 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  // Updated navigation order: Home > Dining > Nightclub > Rooms > Contact > Gallery
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Rooms', href: '/rooms' },
     { name: 'Dining', href: '/dining' },
-    { name: 'Gallery', href: '/gallery' },
+    { name: 'Nightclub', href: '/nightclub' },
+    { name: 'Rooms', href: '/rooms' },
     { name: 'Contact', href: '/contact' },
+    { name: 'Gallery', href: '/gallery' },
   ];
 
   const isActive = (path: string) => pathname === path;

@@ -13,33 +13,25 @@ const Navigation = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Simplified navigation order: Home > Dining > Nightclub > Rooms > Contact > Gallery
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/rooms', label: 'Rooms' },
     { href: '/dining', label: 'Dining' },
-    { href: '/dining#nightclub', label: 'Nightclub' },
-    { href: '/gallery', label: 'Gallery' },
+    { href: '/nightclub', label: 'Nightclub' },
+    { href: '/rooms', label: 'Rooms' },
     { href: '/contact', label: 'Contact' },
+    { href: '/gallery', label: 'Gallery' },
   ];
 
+  // Simple active link detection
   const isActiveLink = (href: string) => {
-    // Handle root path specially
     if (href === '/') {
       return pathname === '/';
     }
-    
-    // Handle anchor links
-    if (href.includes('#')) {
-      const [path] = href.split('#');
-      return pathname === path;
-    }
-    
-    // Handle regular paths
-    return pathname === href || pathname.startsWith(href + '/');
+    return pathname === href;
   };
 
   const handleLinkClick = () => {
-    // Close mobile menu when any link is clicked
     setIsMenuOpen(false);
   };
 
@@ -67,67 +59,6 @@ const Navigation = () => {
       <rect x="18" y="22" width="4" height="6" fill="white" />
       <rect x="24" y="22" width="4" height="6" fill="white" />
       <rect x="16" y="28" width="8" height="4" fill="white" />
-    </svg>
-  );
-
-  // Hamburger Menu Icon
-  const HamburgerIcon = () => (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-6 h-6"
-    >
-      <path
-        d="M3 12H21"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M3 6H21"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M3 18H21"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-
-  // Close Icon
-  const CloseIcon = () => (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-6 h-6"
-    >
-      <path
-        d="M18 6L6 18"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M6 6L18 18"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
     </svg>
   );
 
@@ -182,7 +113,15 @@ const Navigation = () => {
             className="md:hidden p-2 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
             aria-label="Toggle navigation menu"
           >
-            {isMenuOpen ? <CloseIcon /> : <HamburgerIcon />}
+            {isMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
